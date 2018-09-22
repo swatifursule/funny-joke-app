@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Joke } from '../Joke';
 @Component({
   selector: 'app-joke-list',
@@ -23,5 +24,7 @@ export class JokeListComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  addJoke(joke) {
+    this.jokes.unshift(joke);
+  }
 }
