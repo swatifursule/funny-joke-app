@@ -1,7 +1,17 @@
-<div class="card card-block">
+<ng-content select=".sn"></ng-content>
+<div class="card card-block" appCardHover>
   <h4 class="card-title"><ng-content select=".setup"></ng-content></h4>
+  <h6 class="card-text"
+     [style.display]="'none'">{{data.punchline}}</h6>
   <p class="card-text"
      [hidden]="data.hide"><ng-content select=".punchline"></ng-content></p>
+  <p class="card-text"
+        *ngIf="!data.hide">{{data.punchline}}</p>
+  <ng-template [ngIf]="!data.hide">
+     <p class="card-text">
+     {{ data.punchline }}
+     </p>
+   </ng-template>
   <a (click)="data.toggle()"
      class="btn btn-warning">Tell Me
   </a>
